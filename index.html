@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CURSO DE APRENDIZAJE DE LA TELESECUNDARIA 197</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background:#BCF4F5;
+  color:#222;
+}
+
+header{
+  background:#B4EBCA;
+  padding:40px 20px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+header h1{
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
+
+header p{
+  font-size:1.05rem;
+}
+
+nav{
+  background:#D3FAC7;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:18px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav button{
+  background:#FFB7C3;
+  border:none;
+  padding:12px 20px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:15px;
+  transition:0.3s;
+}
+
+nav button:hover{
+  transform:translateY(-3px);
+}
+
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.section{
+  display:none;
+  background:white;
+  padding:35px;
+  border-radius:20px;
+  margin-bottom:30px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.07);
+  border-left:8px solid #B4EBCA;
+}
+
+.section.active{
+  display:block;
+  animation:fade 0.4s ease;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(10px);} 
+  to{opacity:1; transform:translateY(0);}
+}
+
+h2{
+  margin-bottom:18px;
+  font-size:1.8rem;
+}
+
+h3{
+  margin-top:20px;
+  margin-bottom:10px;
+  color:#444;
+}
+
+p, li{
+  line-height:1.8;
+  margin-bottom:10px;
+}
+
+ul{
+  padding-left:20px;
+}
+
+.loader-wrapper{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(135deg,#FFF8B5,#DCEBFF,#FFE9A8,#CFEFFF);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:9999;
+  transition:all 1s ease;
+}
+
+.loader-wrapper::before{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  background:rgba(255,255,255,0.35);
+  border-radius:50%;
+  filter:blur(30px);
+  animation:flotar 3s ease-in-out infinite;
+}
+
+.loader-wrapper.hidden{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-box{
+  position:relative;
+  z-index:2;
+  background:rgba(255,255,255,0.55);
+  padding:45px 60px;
+  border-radius:28px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.loader{
+  width:110px;
+  height:110px;
+  border:10px solid rgba(255,255,255,0.7);
+  border-top:10px solid #4A90E2;
+  border-right:10px solid #FFD54F;
+  border-left:10px solid #8EC5FC;
+  border-radius:50%;
+  animation:girar 1.2s linear infinite;
+  margin:0 auto 25px;
+}
+
+.loader-text{
+  font-size:1.25rem;
+  font-weight:700;
+  color:#2c3e50;
+  text-align:center;
+  line-height:1.8;
+}
+
+.loader-subtext{
+  margin-top:12px;
+  font-size:0.95rem;
+  color:#4b5b6b;
+  letter-spacing:0.5px;
+}
+
+@keyframes flotar{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-12px);}
+  100%{transform:translateY(0px);}
+}
+
+@keyframes girar{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+footer{
+  background:#B4EBCA;
+  text-align:center;
+  padding:25px;
+  margin-top:30px;
+}
+</style>
+</head>
+<body>
+
+<div class="loader-wrapper" id="loader">
+  <div class="loader-box">
+    <div class="loader"></div>
+    <div class="loader-text">
+      Bienvenido a la Plataforma Educativa<br>
+      Telesecundaria 197
+    </div>
+    <div class="loader-subtext">
+      Preparando contenido académico profesional...
+    </div>
+  </div>
+</div>
+
+<header>
+  <h1>CURSO DE APRENDIZAJE DE LA TELESECUNDARIA 197</h1>
+  <p>Manual completo de Microsoft Word Excel PowerPoint Macros y Automatización</p>
+</header>
+
+<nav>
+  <button onclick="mostrarSeccion('inicio')">Inicio</button>
+  <button onclick="mostrarSeccion('word')">Microsoft Word</button>
+  <button onclick="mostrarSeccion('excel')">Microsoft Excel</button>
+  <button onclick="mostrarSeccion('powerpoint')">PowerPoint</button>
+  <button onclick="mostrarSeccion('macros')">Macros</button>
+</nav>
+
+<div class="container">
+
+<section id="inicio" class="section active">
+<h2>Manual Extenso de Microsoft Word, Excel, PowerPoint, Macros y Automatización</h2>
+<p>Este manual está diseñado como una guía completa, detallada y profesional para aprender a utilizar correctamente Microsoft Office, especialmente Microsoft Word, Microsoft Excel, Microsoft PowerPoint, las Macros y la Automatización con Visual Basic for Applications.</p>
+<p>Estas herramientas son fundamentales en la vida académica, laboral y profesional, ya que permiten organizar información, crear documentos formales, analizar datos, realizar presentaciones de alto impacto y automatizar tareas repetitivas.</p>
+
+<h3>Índice</h3>
+<ul>
+<li>Microsoft Word</li>
+<li>Microsoft Excel</li>
+<li>Microsoft PowerPoint</li>
+<li>Macros</li>
+<li>Automatización</li>
+<li>VBA</li>
+<li>Recomendaciones Profesionales</li>
+<li>Errores comunes</li>
+<li>Buenas prácticas</li>
+<li>Conclusión</li>
+</ul>
+
+<h3>Bienvenida</h3>
+<h2>Bienvenida</h2>
+<p>Este manual explica de forma clara y profesional cómo usar correctamente cada herramienta de Microsoft Office, sus funciones más importantes, comandos principales y recomendaciones para aprovecharlas mejor.</p>
+<p>Aquí encontrarás una guía completa para dominar Word, Excel, PowerPoint, Macros y Automatización de una forma sencilla y profesional.</p>
+</section>
+
+<section id="word" class="section">
+<h2>CAPÍTULO 1 — MICROSOFT WORD</h2>
+
+<h3>¿Qué es Word?</h3>
+<p>Microsoft Word es un procesador de textos desarrollado por Microsoft que permite crear, editar, diseñar y compartir documentos escritos con formato profesional. Es una de las herramientas más utilizadas en escuelas, universidades, oficinas, empresas y dependencias gubernamentales.</p>
+
+<h3>Se utiliza para elaborar</h3>
+<ul>
+<li>Tareas escolares</li>
+<li>Investigaciones y ensayos</li>
+<li>Reportes e informes empresariales</li>
+<li>Cartas y oficios</li>
+<li>Currículums</li>
+<li>Contratos</li>
+<li>Tesis y manuales</li>
+<li>Documentos legales</li>
+</ul>
+
+<h3>Interfaz principal de Word</h3>
+<p>Incluye barra de título, barra de acceso rápido, cinta de opciones, área de trabajo y barra de estado. Desde estas áreas se controla todo el documento.</p>
+
+<h3>Pestaña Inicio</h3>
+<p>Permite controlar fuente, tamaño, color, negrita, cursiva, subrayado, alineación, sangría, interlineado, viñetas, numeración y estilos automáticos.</p>
+
+<h3>Pestaña Insertar</h3>
+<p>Permite insertar tablas, imágenes, iconos, formas, SmartArt, gráficos, WordArt, ecuaciones, símbolos, encabezados, pies de página, hipervínculos y portadas.</p>
+
+<h3>Referencias</h3>
+<p>Muy importante para trabajos de investigación. Permite tabla de contenido automática, citas bibliográficas, bibliografía, notas al pie e índices automáticos.</p>
+
+<h3>Guardar correctamente</h3>
+<p>Siempre se recomienda usar Archivo → Guardar como y elegir formato .docx para edición y PDF para entrega final.</p>
+
+<h3>Recomendaciones profesionales</h3>
+<p>Usar letra formal como Arial, Calibri o Times New Roman, tamaño 11 o 12, justificar texto formal, revisar ortografía y mantener un diseño limpio y profesional.</p>
+</section>
+
+<section id="excel" class="section">
+<h2>CAPÍTULO 2 — MICROSOFT EXCEL</h2>
+
+<h3>¿Qué es Excel?</h3>
+<p>Microsoft Excel es una hoja de cálculo diseñada para organizar datos, realizar operaciones matemáticas, crear reportes automáticos y analizar información. Es una herramienta esencial en administración, negocios, contabilidad e ingeniería.</p>
+
+<h3>Elementos principales</h3>
+<ul>
+<li>Filas horizontales</li>
+<li>Columnas verticales</li>
+<li>Celdas como A1</li>
+<li>Rangos como A1:A10</li>
+<li>Fórmulas y funciones</li>
+<li>Tablas y gráficos</li>
+</ul>
+
+<h3>Fórmulas principales</h3>
+<p>SUMA, PROMEDIO, MAX, MIN, SI, CONTAR y BUSCARV son fundamentales para cálculos y análisis automáticos de información.</p>
+
+<h3>Herramientas importantes</h3>
+<p>Formato de tabla, filtros automáticos, validación de datos, tablas dinámicas, protección de hojas y gráficos estadísticos para reportes profesionales.</p>
+
+<h3>Gráficos</h3>
+<p>Permiten representar ventas, gastos, estadísticas y resultados escolares mediante barras, pastel, líneas, columnas y dispersión.</p>
+
+<h3>Buenas prácticas</h3>
+<p>Usar encabezados claros, no dejar datos desordenados, revisar fórmulas, proteger información importante y guardar respaldos frecuentes.</p>
+</section>
+
+<section id="powerpoint" class="section">
+<h2>CAPÍTULO 3 — MICROSOFT POWERPOINT</h2>
+
+<h3>¿Qué es PowerPoint?</h3>
+<p>Microsoft PowerPoint permite crear presentaciones visuales para exposiciones académicas, conferencias, proyectos y presentaciones empresariales. Su objetivo principal es comunicar información de forma clara, visual y profesional.</p>
+
+<h3>Elementos principales</h3>
+<ul>
+<li>Diapositivas</li>
+<li>Temas y plantillas</li>
+<li>Transiciones</li>
+<li>Animaciones</li>
+<li>Imágenes y videos</li>
+<li>Audios y gráficos</li>
+<li>SmartArt</li>
+</ul>
+
+<h3>Cómo hacer una buena presentación</h3>
+<p>La regla principal es menos texto y más explicación. La diapositiva debe servir como apoyo visual y no como lectura completa.</p>
+
+<h3>Diseño profesional</h3>
+<p>Usar colores suaves, letra grande, títulos visibles, imágenes claras y evitar fondos confusos o exceso de animaciones.</p>
+
+<h3>Atajos importantes</h3>
+<p>F5 iniciar presentación, Shift + F5 desde diapositiva actual, Esc salir y Ctrl + M nueva diapositiva.</p>
+</section>
+
+<section id="macros" class="section">
+<h2>CAPÍTULO 4 — MACROS, AUTOMATIZACIÓN Y VBA</h2>
+
+<h3>¿Qué son las macros?</h3>
+<p>Las macros son secuencias de acciones grabadas que permiten automatizar tareas repetitivas. Son especialmente útiles en Microsoft Excel y Word para ahorrar tiempo y evitar errores.</p>
+
+<h3>Cómo crear una macro</h3>
+<p>Vista → Macros → Grabar macro → asignar nombre → elegir botón o teclado → realizar acciones → detener grabación.</p>
+
+<h3>Automatización</h3>
+<p>Es hacer que procesos repetitivos se ejecuten solos mediante reglas, fórmulas, macros o programación. Esto mejora productividad y precisión.</p>
+
+<h3>Ejemplos reales</h3>
+<ul>
+<li>Reportes automáticos</li>
+<li>Facturas automáticas</li>
+<li>Control de inventario</li>
+<li>Listas de asistencia</li>
+<li>Cálculos automáticos</li>
+<li>Generación de constancias</li>
+<li>Bases de datos inteligentes</li>
+</ul>
+
+<h3>VBA</h3>
+<p>Visual Basic for Applications es el lenguaje de programación usado para crear macros avanzadas. Permite formularios, botones automáticos y procesos profesionales.</p>
+
+<h3>Ejemplo básico</h3>
+<p>Sub Mensaje() MsgBox "Bienvenido" End Sub</p>
+
+<h3>Importancia profesional</h3>
+<p>Aprender macros y automatización permite trabajar con mayor velocidad, precisión y productividad, siendo una ventaja importante para estudios superiores y trabajos de oficina.</p>
+</section>
+
+</div>
+
+<footer>
+<p>Telesecundaria 197 | Plataforma educativa digital</p>
+</footer>
+
+<script>
+function mostrarSeccion(id){
+  const secciones = document.querySelectorAll('.section');
+  secciones.forEach(sec => {
+    sec.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+}
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    document.getElementById('loader').classList.add('hidden');
+  }, 3200);
+});
+</script>
+
+</body>
+</html>
